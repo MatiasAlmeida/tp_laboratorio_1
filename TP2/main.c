@@ -2,13 +2,14 @@
 
 int main()
 {
-    sEmployee *arrayEmployees;
-    int auxId=0;
-    char auxName[CHARSIZE];
-    char auxLastName[CHARSIZE];
-    float auxSalary;
-    int auxSector;
-    char opcion;
+    sEmployee arrayEmployees[STRUCTARRAY];
+    int id=0;
+    char name[CHARSIZE];
+    char lastName[CHARSIZE];
+    float salary=0;
+    int sector=0;
+    char option1;
+    char option2;
     int flag=0;
     int ret=0;
     int retEmployee=0;
@@ -21,28 +22,27 @@ int main()
     }
 
     do{
-        printf("1. ALTAS.\n2. MODIFICAR.\n3. BAJAS.\n4. INFORMAR.\n\nIngrese opcion: ");
-        scanf("%c",&opcion);
+        printf("1. ALTAS.\n2. MODIFICAR.\n3. BAJAS.\n4. INFORMAR.\n5. SALIR.\n\nIngrese opcion: ");
+        scanf("%c",&option1);
         fflush(stdin);
 
-        if(flag==0 && (opcion=='2' || opcion=='3' || opcion=='4')){
+        if(flag==0 && (option1=='2' || option1=='3' || option1=='4')){
             printf("\nError. No hay ningun empleado cargado.\n");
             continue;
         }
 
-        switch(opcion){
+        switch(option1){
             case '1':
-                printf("Ingrese nombre: ");
-                getStructString(auxName, CHARSIZE);
-                printf("\nIngrese apellido: ");
-                getStructString(auxLastName, CHARSIZE);
-                printf("\nIngrese salario: ");
-                auxSalary=getFloat(auxSalary);
-                printf("\nIngrese sector: ");
-                auxSector=getInt(auxSector);
-                auxId=generateId(auxId, STRUCTARRAY);
-                retEmployee=addEmployees(arrayEmployees,auxId,auxName,auxLastName,auxSalary,auxSector);
-                flag=1;
+                do{
+                    retEmployee=addEmployee(arrayEmployees,STRUCTARRAY,id,name,lastName,salary,sector);
+                    if(retEmployee!=-1){
+                        flag=1;
+                    }else{
+                        printf("\nError. No hay mas espacio.\n");
+                        break;
+                    }
+                    option2=getChar(option2);
+                }while(option2=='S');
                 break;
             case '2':
                 break;
@@ -51,13 +51,13 @@ int main()
             case '4':
                 break;
             default:
-                if(opcion!='5')
+                if(option1!='5')
                     printf("\nError. Ingrese una opcion perteneciente al menu.\n\n");
                 break;
         }
 
 
-    }while(opcion!='5');
+    }while(option1!='5');
 
     return ret;
 }
