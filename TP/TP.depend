@@ -1,10 +1,13 @@
 # depslib dependency file v1.0
-1538655221 source:d:\matias almeida\tp2\tp\arrayemployees.c
+1538749687 source:d:\matias almeida\tp2\tp\arrayemployees.c
 	"ArrayEmployees.h"
 
-1538655221 d:\matias almeida\tp2\tp\arrayemployees.h
+1538750124 d:\matias almeida\tp2\tp\arrayemployees.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
+
+1538742708 source:d:\matias almeida\tp2\tp\main.c
+	"ArrayEmployees.h"
 

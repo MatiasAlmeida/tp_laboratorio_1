@@ -4,7 +4,7 @@
 #include <ctype.h>
 #define STRUCTARRAY 3
 #define CHARSIZE 51
-#define UNSGINT
+#define INTSIZE 65535 ///limite del entero signado (2^16 - 1)
 
 typedef struct{
     int id;
@@ -17,15 +17,21 @@ typedef struct{
 
 int initEmployees(sEmployee *, int);
 
-void freeSpace(sEmployee *, int);
+int freeSlot(sEmployee *, int);
 
 int addEmployee(sEmployee *, int, int, char *, char *, float, int);
 
+int findEmployeeById(sEmployee *,int, int);
+
+int modifyEmployee(sEmployee *, int, int);
+
 char valCases(int, char);
 
-void getStructString(char *, int);
+void getString(char *, int);
 
 void valString(char *, char *, int);
+
+int twoWords(char *);
 
 int searchSpace(char *);
 
@@ -37,6 +43,14 @@ int getInt(int, int);
 
 int valInt(char *, int, char *, int);
 
-int searchCharacter(char *);
+int searchCharacterFloat(char *);
 
-unsigned int generateId(unsigned int);
+int searchCharacterInt(char *);
+
+int searchNoAlpha(char *);
+
+char getChar(char);
+
+void valChar(char);
+
+void toUpperChars(char *);
