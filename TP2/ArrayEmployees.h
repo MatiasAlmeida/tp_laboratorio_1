@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#define STRUCTARRAY 3
+#include <conio.h>
+#define STRUCTARRAY 2
 #define CHARSIZE 51
-#define INTSIZE 65535
+#define INTSIZE 65535 ///limite del entero signado (2^16 - 1)
 
 typedef struct{
     int id;
@@ -21,7 +22,19 @@ int freeSlot(sEmployee *, int);
 
 int addEmployee(sEmployee *, int, int, char *, char *, float, int);
 
-char valCases(int, char);
+void getEmployees(sEmployee *, int, int, char *, char *, float, int);
+
+int findEmployeeById(sEmployee *,int, int);
+
+int editEmployee(sEmployee *, int, int, char *, char *, float, int);
+
+void modifyEmployee(sEmployee *, int, char *, char *, float, int);
+
+int removeEmployee(sEmployee *, int, int);
+
+void deleteEmployee(sEmployee *, int);
+
+int sortEmployees(sEmployee *, int, int);
 
 void getString(char *, int);
 
@@ -45,10 +58,39 @@ int searchCharacterInt(char *);
 
 int searchNoAlpha(char *);
 
-void generateId(int *, int);
-
 char getChar(char);
 
 void valChar(char);
 
+char valCharModEmployee(char);
+
+int valChange(char, int);
+
 void toUpperChars(char *);
+
+void employeeDataName(sEmployee *, char *, int);
+
+void employeeDataLastName(sEmployee *, char *, int);
+
+void employeeDataSalary(sEmployee *, float, int);
+
+void employeeDataSector(sEmployee *, int, int);
+
+void employeeStructData(sEmployee *, int);
+
+int verifyVoid(sEmployee *, int);
+
+void showList(sEmployee *, int);
+
+void showSalary();
+
+void upOrder(sEmployee *, int);
+
+void downOrder(sEmployee *, int);
+
+int printEmployee(sEmployee *, int);
+
+char valCharList(char);
+
+char valOrder(char);
+
